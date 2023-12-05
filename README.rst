@@ -43,9 +43,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/luis-v-subtitler
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/LuisAVasquez/python-luis-v-subtitler/v0.0.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/LuisAVasquez/python-luis-v-subtitler/v0.0.1.svg
     :alt: Commits since latest release
-    :target: https://github.com/LuisAVasquez/python-luis-v-subtitler/compare/v0.0.0...main
+    :target: https://github.com/LuisAVasquez/python-luis-v-subtitler/compare/v0.0.1...main
 
 
 
