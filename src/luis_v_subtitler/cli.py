@@ -16,8 +16,11 @@ Why does this file exist, and why not put this in __main__?
 """
 import click
 
+from .utils import basic_test
+
 
 @click.command()
 @click.argument("names", nargs=-1)
 def main(names):
     click.echo(repr(names))
+    basic_test()
