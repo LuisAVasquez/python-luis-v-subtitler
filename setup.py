@@ -69,7 +69,6 @@ setup(
         "torchaudio==0.13.1",
         "torchtext==0.14.1",
         "torchdata==0.5.1",
-        "whisperx @ git+https://github.com/m-bain/whisperX.git@e9c507ce5dea0f93318746411c03fed0926b70be",
         "pydub==0.25.1",
         "openai-whisper==20231117",
         "speechbrain==0.5.16",
@@ -77,6 +76,7 @@ setup(
         "optimum==1.16.0",
         # eg: "aspectlib==1.1.1", "six>=1.7",
     ],
+    dependency_links=["git+https://github.com/m-bain/whisperX.git@e9c507ce5dea0f93318746411c03fed0926b70be"],
     extras_require={
         # eg:
         #   "rst": ["docutils>=0.11"],
