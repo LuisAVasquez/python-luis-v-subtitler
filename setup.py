@@ -63,6 +63,18 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         "click",
+        "pytube==15.0.0",
+        "torch==1.13.1",
+        "torchvision==0.14.1",
+        "torchaudio==0.13.1",
+        "torchtext==0.14.1",
+        "torchdata==0.5.1",
+        "whisperx @ git+https://github.com/m-bain/whisperX.git@e9c507ce5dea0f93318746411c03fed0926b70be",
+        "pydub==0.25.1",
+        "openai-whisper==20231117",
+        "speechbrain==0.5.16",
+        "accelerate==0.25.0",
+        "optimum==1.16.0",
         # eg: "aspectlib==1.1.1", "six>=1.7",
     ],
     extras_require={
