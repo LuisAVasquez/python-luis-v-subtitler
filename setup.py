@@ -74,7 +74,6 @@ setup(
         "speechbrain==0.5.16",
         "accelerate==0.25.0",
         "optimum==1.16.0",
-        "-e git://github.com/m-bain/whisperX.git@e9c507ce5dea0f93318746411c03fed0926b70be",
         # eg: "aspectlib==1.1.1", "six>=1.7",
     ],
     dependency_links=["git+https://github.com/m-bain/whisperX.git@e9c507ce5dea0f93318746411c03fed0926b70be"],
