@@ -63,6 +63,7 @@ setup(
     python_requires=">=3.8",
     install_requires=[
         "click",
+        "moviepy==1.0.3",
         "pytube==15.0.0",
         "torch==1.13.1",
         "torchvision==0.14.1",
