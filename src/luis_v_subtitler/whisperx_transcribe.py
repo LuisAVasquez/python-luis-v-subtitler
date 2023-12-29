@@ -83,14 +83,14 @@ def get_word_level_timestamps(
         A dictionary containing the words from the audio, timestamps, phrases, and other metadata
     """
 
-    print("Loading Whisper X model")
+    print(f"Loading Whisper X model on device: {my_device}")
 
     word_alignment_model, metadata = load_align_model(language_code=language, device=my_device)
 
     print("Aligning at the word level")
 
     word_level_transcription = align(
-        deepcopy(phrase_level_transcription["segments"]), word_alignment_model, metadata, audio_filename, my_device
+        deepcopy(phrase_level_transcription["segments"]), word_alignment_model, metadata, audio_filename, str(my_device)
     )
 
     # free some device memory
