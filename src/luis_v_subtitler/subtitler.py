@@ -66,7 +66,7 @@ def generate_subtitles_for_youtube(
     text_filepath = generate_txt_path(input_file_path=video_filepath)
     subtitles_filepath = generate_txt_path(input_file_path=video_filepath, extension="srt")
 
-    save_to_srt_file(subtitles_path=subtitles_filepath, annotated_transcription_result=phrase_level_transcription)
+    save_to_srt_file(subtitles_path=subtitles_filepath, annotated_transcription_result=word_level_transcription)
     save_to_txt_file(txt_path=text_filepath, annotated_transcription_result=word_level_transcription)
 
     logging.info("Finished subtitling!")
