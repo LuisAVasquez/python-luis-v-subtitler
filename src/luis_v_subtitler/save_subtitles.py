@@ -49,7 +49,7 @@ def generate_txt_path(input_file_path: Union[str, os.PathLike], extension: str =
     path_obj = Path(input_file_path)
     filename = path_obj.parent / path_obj.stem
     # ext = path_obj.suffix
-    result = filename + "." + extension
+    result = f"{filename}.{extension}"
     print(result)
     return result
 
