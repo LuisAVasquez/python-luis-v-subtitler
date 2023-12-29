@@ -90,7 +90,7 @@ def get_word_level_timestamps(
     print("Aligning at the word level")
 
     word_level_transcription = align(
-        deepcopy(phrase_level_transcription["segments"]), word_alignment_model, metadata, audio_filename, device
+        deepcopy(phrase_level_transcription["segments"]), word_alignment_model, metadata, audio_filename, my_device
     )
 
     # free some device memory
