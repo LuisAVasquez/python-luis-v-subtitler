@@ -56,11 +56,13 @@ def generate_subtitles_for_youtube(
 
     logging.info("Captioning at the phrase level with Whisper")
     phrase_level_transcription = get_phrase_level_timestamps(audio_filename=audio_filepath, language=language, batch_size=16)
+    phrase_level_transcription["language"] = language
 
     logging.info("Captioning at the word level with WhisperX")
     word_level_transcription = get_word_level_timestamps(
         audio_filename=audio_filepath, phrase_level_transcription=phrase_level_transcription, language=language
     )
+    word_level_transcription["language"] = language
 
     logging.info("Saving subtitles")
     text_filepath = generate_txt_path(input_file_path=video_filepath)
