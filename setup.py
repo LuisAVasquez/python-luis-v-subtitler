@@ -13,7 +13,7 @@ def read(*names, **kwargs):
 
 setup(
     name="luis-v-subtitler",
-    version="0.1.2",
+    version="0.1.3",
     license="MIT",
     description="A Python package to use AI to subtitle any video in any language",
     long_description="{}\n{}".format(
