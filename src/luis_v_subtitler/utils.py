@@ -83,7 +83,7 @@ def convert_video_to_audio_ffmpeg(video_filepath: Union[str, os.PathLike], outpu
     audio_clip = video_clip.audio
 
     # Save the audio to a new file
-    audio_clip.write_audiofile(output_file, codec=output_ext)
+    audio_clip.write_audiofile(output_file)
 
     print(output_file)
     return output_file
