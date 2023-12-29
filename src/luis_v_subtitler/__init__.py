@@ -1,3 +1,3 @@
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 from .subtitler import generate_subtitles_for_youtube
