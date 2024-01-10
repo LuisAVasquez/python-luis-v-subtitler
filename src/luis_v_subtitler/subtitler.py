@@ -42,8 +42,59 @@ def generate_subtitles_for_youtube(
     logging.info("Downloading youtube Video")
     video_filepath = download_from_youtube(youtube_url)
 
+    subtitling_result = generate_subtitles_for_video_file(video_filepath=video_filepath, language=language, output_dir=output_dir)
+
+    return subtitling_result
+
+
+def generate_subtitles_for_video_file(
+    video_filepath: str, language: Optional[str] = None, output_dir: Optional[Union[str, os.PathLike]] = None
+) -> dict:
+    """A quick implementation for youtube videos of the universal subtitler.
+
+    Parameters
+    ----------
+    video_filepath : str
+        Path to video file
+    language : Optional[str], optional
+        language ISO code of the video. If unspecified, use automatic language detection, by default None
+    output_dir : Optional[Union[str, os.PathLike]], optional
+        Directory for saving the video and subtitles. If unspecified, use the current working directory, by default None
+
+    Returns
+    -------
+    dict
+        A dictionary containing the locations of the downloaded video, subtitles, and text file
+    """
+
     logging.info("Extracting audio from video")
     audio_filepath = convert_video_to_audio_ffmpeg(video_filepath=video_filepath, output_ext="wav")
+
+    subtitling_result = generate_subtitles_for_audio_file(audio_filepath=audio_filepath, language=language, output_dir=output_dir)
+    subtitling_result["video"] = video_filepath
+
+    return subtitling_result
+
+
+def generate_subtitles_for_audio_file(
+    audio_filepath: str, language: Optional[str] = None, output_dir: Optional[Union[str, os.PathLike]] = None
+) -> dict:
+    """A quick implementation for youtube videos of the universal subtitler.
+
+    Parameters
+    ----------
+    audio_filepath : str
+        Path to audio file
+    language : Optional[str], optional
+        language ISO code of the video. If unspecified, use automatic language detection, by default None
+    output_dir : Optional[Union[str, os.PathLike]], optional
+        Directory for saving the video and subtitles. If unspecified, use the current working directory, by default None
+
+    Returns
+    -------
+    dict
+        A dictionary containing the locations of the downloaded video, subtitles, and text file
+    """
 
     if language is None:
         logging.info("Detecting video language with Speechbrain AI")
@@ -65,13 +116,13 @@ def generate_subtitles_for_youtube(
     word_level_transcription["language"] = language
 
     logging.info("Saving subtitles")
-    text_filepath = generate_txt_path(input_file_path=video_filepath)
-    subtitles_filepath = generate_txt_path(input_file_path=video_filepath, extension="srt")
+    text_filepath = generate_txt_path(input_file_path=audio_filepath)
+    subtitles_filepath = generate_txt_path(input_file_path=audio_filepath, extension="srt")
 
     save_to_srt_file(subtitles_path=subtitles_filepath, annotated_transcription_result=word_level_transcription)
     save_to_txt_file(txt_path=text_filepath, annotated_transcription_result=word_level_transcription)
 
     logging.info("Finished subtitling!")
 
-    subtitling_result = {"video": video_filepath, "subtitles": subtitles_filepath, "text": text_filepath, "language": language}
+    subtitling_result = {"subtitles": subtitles_filepath, "audio": audio_filepath, "text": text_filepath, "language": language}
     return subtitling_result
