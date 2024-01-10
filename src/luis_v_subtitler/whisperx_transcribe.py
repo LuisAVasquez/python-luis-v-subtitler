@@ -14,6 +14,7 @@ from whisperx import align
 from whisperx import load_align_model
 
 my_device = device("cuda" if is_available() else "cpu")
+my_compute_type = "float16" if is_available() else "float"
 print(f"Using {my_device}")
 
 
@@ -43,7 +44,7 @@ def get_phrase_level_timestamps(
     phrase_model = whisperx.load_model(
         "large-v3",
         device=str(my_device),
-        # compute_type = compute_type,
+        compute_type=my_compute_type,
         language=language,
     )
 
