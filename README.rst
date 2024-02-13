@@ -74,6 +74,11 @@ Documentation
 https://python-luis-v-subtitler.readthedocs.io/
 
 
+Building Guide (Dev only)
+===========
+https://github.com/ionelmc/cookiecutter-pylibrary
+
+
 Development
 ===========
 
