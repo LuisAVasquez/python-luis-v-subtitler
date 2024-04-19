@@ -17,7 +17,7 @@ project = "Luis V subtitler"
 year = "2023"
 author = "Luis Antonio VASQUEZ REINA"
 copyright = f"{year}, {author}"
-version = release = "0.1.10"
+version = release = "0.1.11"
 
 pygments_style = "trac"
 templates_path = ["."]
