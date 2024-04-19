@@ -40,12 +40,15 @@ def get_phrase_level_timestamps(
         A dictionary containing text phrases from the audio, timestamps, and other metadata.
     """
 
+    asr_options = {
+        "max_new_tokens": None,
+        "clip_timestamps": None,
+        "hallucination_silence_threshold": None,
+    }
+
     print("Loading Whisper Model:")
     phrase_model = whisperx.load_model(
-        "large-v3",
-        device=str(my_device),
-        compute_type=my_compute_type,
-        language=language,
+        "large-v3", device=str(my_device), compute_type=my_compute_type, language=language, asr_options=asr_options
     )
 
     audio = whisperx.load_audio(audio_filename)
